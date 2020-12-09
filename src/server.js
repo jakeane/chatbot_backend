@@ -4,6 +4,8 @@ import cors from 'cors';
 import path from 'path';
 import morgan from 'morgan';
 
+import router from './nrclex';
+
 // initialize
 const app = express();
 
@@ -27,6 +29,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // additional init stuff should go before hitting the routing
+app.use('/nrclex', router);
 
 // default index route
 app.get('/', (req, res) => {
